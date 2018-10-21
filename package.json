@@ -2,10 +2,21 @@
   "name": "javascript-development-environment",
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
-  "scripts": {},
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.*, src, buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
+    "localtunnel": "lt --port 3000 --subdomain ddotdev",
+    "public": "npm-run-all --parallel start localtunnel",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "@types/chalk": "^2.2.0",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
@@ -42,5 +53,14 @@
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.0",
     "webpack-md5-hash": "0.0.5"
-  }
+  },
+  "main": "webpack.config.dev.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddotx/js-dev-env.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddotx/js-dev-env/issues"
+  },
+  "homepage": "https://github.com/ddotx/js-dev-env#readme"
 }
