@@ -44,6 +44,21 @@ Headless Browser: PhantomJS
 **Travis(linux), Appveyor(windows)**, Jenkins, CircleCI, Semaphore, SnapCI
 
 - HTTP
+>*HTTP Call Approaches*
+Node: http, **request**
+Browser: XMLHttpRequest, jQuery, **Fetch**
+Node & Browser: isomorphic-fetch, xhr, SuperAgent, Axios
+>*Mock HTTP*
+Nock, Static JSON
+Create dev webserver: api-mock, JSON server, JSON Schema faker, Browsersync, Express
+
+>*Mocking HTTP*
+**1-Declare schema**
+JSON Schema Faker
+**2-Generate Random Data**
+faker.js, chance.js, regexp.js
+**3-Serve Data via API**
+JSON Server
 
 - Project structure
 - Production build
